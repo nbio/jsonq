@@ -35,13 +35,13 @@ Licensed under Apache License, Version 2.0 - http://www.apache.org/licenses/LICE
         d.open("text/html", false);
         d.write("<html><head></head><body>");
         d.write("<script type='text/javascript'>");
-        d.write("(function(){var w = window; var p = w.parent; w.cookie = w.parent = w.top = undefined; window.callback = function(obj){p.JSONQ.callback(obj, '" + id + "');};})();");
+        d.write("(function(){var w = window; var p = w.parent; w.alert = w.cookie = w.parent = w.top = undefined; window.callback = function(obj){p.JSONQ.callback(obj, '" + id + "');};})();");
         d.write("</script>");
         d.write("<script type='text/javascript' src='" + url + "'></script>");
         d.write("</body></html>");
         d.close();
         
-        j.requests[id] = { iframe: i, callback: callback };
+        return j.requests[id] = { iframe: i, callback: callback };
     };
     
     j.callback = function(obj, id) {
